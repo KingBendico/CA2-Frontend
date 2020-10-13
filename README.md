@@ -1,3 +1,4 @@
 # CA2-Frontend
 
-https://travis-ci.org/KingBendico/CA2-Frontend.svg?branch=main
+[![Build Status] (https://travis-ci.org/KingBendico/CA2-Frontend.svg?branch=main)] (https://travis-ci.org/KingBendico/CA2-Frontend) <br>
+
