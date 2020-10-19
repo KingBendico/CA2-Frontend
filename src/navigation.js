@@ -1,8 +1,8 @@
 // Navigation
 // To add more top level buttons in comment the out commented code below and in public/index.html
-const btnEx1 = document.getElementById('btnEx1');
-const btnEx2 = document.getElementById('btnEx2');
-const btnEx3 = document.getElementById('btnEx3');
+const btnEx1 = document.getElementById('pills-home-tab');
+const btnEx2 = document.getElementById('pills-profile-tab');
+const btnEx3 = document.getElementById('pills-contact-tab');
 
 const sectionEx1 = document.getElementById('1');
 const sectionEx2 = document.getElementById('2');
