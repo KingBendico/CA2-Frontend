@@ -1,4 +1,4 @@
-# CA2-Frontend [![Build Status](https://travis-ci.org/KingBendico/CA2-Frontend.svg?branch=main)](https://travis-ci.org/KingBendico/CA2-Frontend)<br>
+# CA2-Frontend [![Build Status](https://travis-ci.org/KingBendico/CA2-Frontend.svg?branch=master)](https://travis-ci.org/KingBendico/CA2-Frontend)<br>
 ### Gruppe 1, class E.
 
 * Benjamin David Choleva, 
