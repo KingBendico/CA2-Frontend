@@ -35,3 +35,11 @@ body {
 .main {
   padding: 16px;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: gray !important;
+}
+
+.nav-pills .nav-link {
+  color: black;
+}
