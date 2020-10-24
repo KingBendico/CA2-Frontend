@@ -14,206 +14,321 @@
 <body>
     <div class="container">
         <div id="headline" class="mb-3">
-            <h1>CA2 Group 2</h1>
+            <h1>CA2 Group 1</h1>
         </div>
         <div id="content">
-
 
             <div class="card mb-3">
                 <div class="card-header p-1">
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item active" role="presentation">
+                            <a class="nav-link" id="functionality-tab" data-toggle="pill" href="#functionality"
+                                role="tab" aria-controls="functionality" aria-selected="false">Functionality</a>
+                        </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="group-tab" data-toggle="pill" href="#group" role="tab"
+                            <a class="nav-link" id="group-tab" data-toggle="pill" href="#group" role="tab"
                                 aria-controls="group" aria-selected="true">Group</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" id="apidoc-tab" data-toggle="pill" href="#apidoc" role="tab"
                                 aria-controls="apidoc" aria-selected="false">API Documentation</a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="messages-tab" data-toggle="pill" href="#messages" role="tab"
-                                aria-controls="messages" aria-selected="false">Messages</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="settings-tab" data-toggle="pill" href="#settings" role="tab"
-                                aria-controls="settings" aria-selected="false">Settings</a>
-                        </li>
+
                     </ul>
                 </div>
                 <div class="card-body">
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" id="group" role="tabpanel" aria-labelledby="group-tab">
-                            <h5 class="card-title">Group info</h5>
-                            <p class="card-text">Joakim Skaarup Stensnæs</p>
-                            <p class="card-text">Frederik Riisager Johnsen!</p>
+                        <!-- Functionality Tab -->
+                        <div class="tab-pane fade show active" id="functionality" role="tabpanel"
+                            aria-labelledby="functionality-tab">
+                            <!-- Person list -->
+                            <h5 class="card-title">Person list</h5>
+                            <div class="table-responsive">
+                                <table id="person-list-table" class="table table-sm table-hover table-bordered">
+                                    <thead>
+                                        <tr scope="row">
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phones</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Hobbies</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>first + last</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h5 class="card-title">Get person</h5>
+
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Number" aria-label="phone"
+                                            aria-describedby="phone">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="phone-button">By
+                                                Phone</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Hobby" aria-label="hobby"
+                                            aria-describedby="hobby">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="hobby-button">By
+                                                Hobby</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Zipcode"
+                                            aria-label="zipcode" aria-describedby="zipcode">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                id="zipcode-button">By Zip</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Get person by phone -->
+                            <!-- Get persons by hobby -->
+                            <!-- Get persons by zip -->
+                            <!-- Add a new person  -->
+                            <p class="card-text">Some content</p>
                         </div>
+                        <!-- Group Tab -->
+                        <div class="tab-pane fade" id="group" role="tabpanel" aria-labelledby="group-tab">
+                            <h5 class="card-title">Group info</h5>
+                            <ul>
+                                <li>Benjamin David Choleva</li>
+                                <li>Frederik Riisager Johnsen</li>
+                                <li>Joakim Karstoft Skaarup Stensnæs</li>
+                                <li>Lasse Emil Støvring Larsen</li>
+                            </ul>
+                            <br>
+                            <h5 class="card-title">Group contract</h5>
+                            <b>GitHub:</b> Regler som tildeles vores arbejde med GitHub:
+
+                            <ul>
+                                <li>Der arbejdes aldrig direkte til master. a. Der skal pushes på en ’XXX’-branch, som
+                                    skal
+                                    sikre, at der KUN ligger kode på master som virker. b. Der skal laves relevante
+                                    branches
+                                    for
+                                    det arbejde, som man påbegynder. c. Branches skal slettes igen efter grøn test, push
+                                    til
+                                    master og endt arbejde med problemstilling. d. Der skal skrives i Discord-chatten
+                                    inden
+                                    man
+                                    pusher ny kode op.</li>
+                            </ul>
+
+                            <b>Mødepunkter:</b>
+
+                            <ul>
+                                <li>Mødetid er klokken 10.00 om morgenen. Dette tilpasses efter behov og kommunikeres på
+                                    Discord.</li>
+                                <li>Alle gruppemedlemmer møder til gruppemøde om morgenen klokken 10.00. Her gennemgås
+                                    gårsdagens opgaver, eventuelle problemer og løsninger.</li>
+                                <li>Planer og udførelsen af disse for den pågældende dag drøftes i plenum.</li>
+                                <li>Til gruppemødet er det vigtigt, at det sidste punkt vi gennemgår, er om samarbejdet
+                                    i gruppen forløber som forventet, eller om vi skal omdirigere ressourcer.</li>
+                            </ul>
+
+                            <b>Kommunikation:</b>
+
+                            <ul>
+                                <li>Al kommunikation foregår på gruppens Discord-chat eller Zoom, hvis dette er
+                                    nødvendigt.
+                                </li>
+                            </ul>
+
+                            <b>Kvajebajer sektionen:</b>
+                            <ul>
+                                <li>Ved udeblivelse ... kvajebajer.</li>
+                            </ul>
+                        </div>
+                        <!-- API Documentation Tab -->
                         <div class="tab-pane fade" id="apidoc" role="tabpanel" aria-labelledby="apidoc-tab">
                             <h5 class="card-title">Rest endpoints</h5>
                             <p class="card-text">
-                              <table class="table table-sm table-hover table-bordered">
-                                  <thead class="thead-light">
-                                      <tr>
-                                          <td scope="col" colspan="5">Person</td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="col">Method</th>
-                                          <th scope="col">URL</th>
-                                          <th scope="col">Request body(JSON)</th>
-                                          <th scope="col">Response(JSON)</th>
-                                          <th scope="col">Error</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">GET</th>
-                                          <td>/api/persons</td>
-                                          <td>{}</td>
-                                          <td>{‘msg’: ‘the API is up and running’}</td>
-                                          <td></td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">GET</th>
-                                          <td>/api/persons/person/{phone}<br><small>phone: A phone number</small></td>
-                                          <td>{}</td>
-                                          <td>person(1)</td>
-                                          <td></td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">GET</th>
-                                          <td>/api/persons/hobby/{hobby}<br><small>hobby: A hobby name</small></td>
-                                          <td>{}</td>
-                                          <td>[person,person,...](1)</td>
-                                          <td></td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">GET</th>
-                                          <td>/api/persons/zip/{zip}<br><small>zip: A valid danish zip code</small></td>
-                                          <td>{}</td>
-                                          <td>[person,person,...](1)</td>
-                                          <td></td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">POST</th>
-                                          <td>/api/persons/add</td>
-                                          <td>person(1) without id</td>
-                                          <td>person(1)</td>
-                                          <td></td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">PUT</th>
-                                          <td>/api/persons/edit/{id}</td>
-                                          <td>person(1) without id</td>
-                                          <td>person(1)</td>
-                                          <td></td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                              <table class="table table-sm table-hover table-bordered">
-                                  <thead class="thead-light">
-                                      <tr>
-                                          <td scope="col" colspan="5">Zip</td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="col">Method</th>
-                                          <th scope="col">URL</th>
-                                          <th scope="col">Request body(JSON)</th>
-                                          <th scope="col">Response(JSON)</th>
-                                          <th scope="col">Error</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">GET</th>
-                                          <td>/api/zip</td>
-                                          <td>{}</td>
-                                          <td>[number,number,...]</td>
-                                          <td></td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                              <table class="table table-sm table-hover table-bordered">
-                                  <thead class="thead-light">
-                                      <tr>
-                                          <td scope="row" colspan="5">Hobby</td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="col">Method</th>
-                                          <th scope="col">URL</th>
-                                          <th scope="col">Request body(JSON)</th>
-                                          <th scope="col">Response(JSON)</th>
-                                          <th scope="col">Error</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">GET</th>
-                                          <td>/api/hobby</td>
-                                          <td>{}</td>
-                                          <td>[hobby,hobby,...](2)</td>
-                                          <td></td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                              
-                              <br>
-                              <p class="font-weight-bold">Request/Response formats</p>
-                              <ol>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-hover table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <td scope="col" colspan="5">Person</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Method</th>
+                                            <th scope="col">URL</th>
+                                            <th scope="col">Request body(JSON)</th>
+                                            <th scope="col">Response(JSON)</th>
+                                            <th scope="col">Error</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">GET</th>
+                                            <td>/api/persons</td>
+                                            <td>{}</td>
+                                            <td>{‘msg’: ‘the API is up and running’}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">GET</th>
+                                            <td>/api/persons/person/{phone}<br><small>phone: A phone number</small></td>
+                                            <td>{}</td>
+                                            <td>person(1)</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">GET</th>
+                                            <td>/api/persons/hobby/{hobby}<br><small>hobby: A hobby name</small></td>
+                                            <td>{}</td>
+                                            <td>[person,person,...](1)</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">GET</th>
+                                            <td>/api/persons/zip/{zip}<br><small>zip: A valid danish zip code</small>
+                                            </td>
+                                            <td>{}</td>
+                                            <td>[person,person,...](1)</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">POST</th>
+                                            <td>/api/persons/add</td>
+                                            <td>person(1) without id</td>
+                                            <td>person(1)</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">PUT</th>
+                                            <td>/api/persons/edit/{id}</td>
+                                            <td>person(1) without id</td>
+                                            <td>person(1)</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-responsive">
+
+                                <table class="table table-sm table-hover table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <td scope="col" colspan="5">Zip</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Method</th>
+                                            <th scope="col">URL</th>
+                                            <th scope="col">Request body(JSON)</th>
+                                            <th scope="col">Response(JSON)</th>
+                                            <th scope="col">Error</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">GET</th>
+                                            <td>/api/zip</td>
+                                            <td>{}</td>
+                                            <td>[number,number,...]</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-responsive">
+
+                                <table class="table table-sm table-hover table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <td scope="row" colspan="5">Hobby</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Method</th>
+                                            <th scope="col">URL</th>
+                                            <th scope="col">Request body(JSON)</th>
+                                            <th scope="col">Response(JSON)</th>
+                                            <th scope="col">Error</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">GET</th>
+                                            <td>/api/hobby</td>
+                                            <td>{}</td>
+                                            <td>[hobby,hobby,...](2)</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br>
+                            <p class="font-weight-bold">Request/Response formats</p>
+                            <ol>
                                 <li>
-                                  <p>Person (omit id from POST and PUT methods)</p>
-                                  <p class="text-secondary bg-light rounded p-3">
-                                    {<br>
-                                      ‘id’:           number,<br>
-                                      ‘email’:        String,<br>
-                                      'phones':       [phone,phone,...](2),<br>
-                                      ‘firstname’:    String,<br>
-                                      ‘lastname’:     String,<br>
-                                      ‘address’:      address(3),<br>
-                                      ‘hobbies’:      [hobby, hobby, …](4),<br>
-                                      ‘zip’:          number<br>
-                                      }                                      
-                                  </p>
+                                    <p>Person (omit id from POST and PUT methods)</p>
+                                    <p class="text-secondary bg-light rounded p-3">
+                                        {<br>
+                                        ‘id’: number,<br>
+                                        ‘email’: String,<br>
+                                        'phones': [phone,phone,...](2),<br>
+                                        ‘firstname’: String,<br>
+                                        ‘lastname’: String,<br>
+                                        ‘address’: address(3),<br>
+                                        ‘hobbies’: [hobby, hobby, …](4),<br>
+                                        ‘zip’: number<br>
+                                        }
+                                    </p>
                                 </li>
                                 <li>
-                                  <p>Phone</p>
-                                  <p class="text-secondary bg-light rounded p-3">
-                                    {<br>
-                                      'number':       number,<br>
-                                      'description':  String<br>
-                                    }
-                                  </p>
+                                    <p>Phone</p>
+                                    <p class="text-secondary bg-light rounded p-3">
+                                        {<br>
+                                        'number': number,<br>
+                                        'description': String<br>
+                                        }
+                                    </p>
                                 </li>
                                 <li>
-                                  <p>Address</p>
-                                  <p class="text-secondary bg-light rounded p-3">
-                                    {<br>
-                                      'street':       String,<br>
-                                      'info':         String<br>
-                                    } 
-                                  </p>
+                                    <p>Address</p>
+                                    <p class="text-secondary bg-light rounded p-3">
+                                        {<br>
+                                        'street': String,<br>
+                                        'info': String<br>
+                                        }
+                                    </p>
                                 </li>
                                 <li>
-                                  <p>Hobby (omit everything but id for PUT and POST methods)</p>
-                                  <p class="text-secondary bg-light rounded p-3">
-                                    {<br>
-                                      'id'            number,<br>
-                                      'name':         String,<br>
-                                      'link':         string<br>
-                                    }<br>
-                                  </p>
+                                    <p>Hobby (omit everything but id for PUT and POST methods)</p>
+                                    <p class="text-secondary bg-light rounded p-3">
+                                        {<br>
+                                        'id' number,<br>
+                                        'name': String,<br>
+                                        'link': string<br>
+                                        }<br>
+                                    </p>
                                 </li>
-                              </ol>
+                            </ol>
 
                             </p>
-                        </div>
-                        <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            <h5 class="card-title">Some headline</h5>
-                            <p class="card-text">Some content</p>
-                        </div>
-                        <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                            <h5 class="card-title">Some headline</h5>
-                            <p class="card-text">Some content</p>
                         </div>
                     </div>
                 </div>
