@@ -130,7 +130,7 @@
                             </div>
                             <h5 class="card-title">Add person</h5>
                             <!-- Add a new person  -->
-                            <div class="col-xl-12 px-3">
+                            <div id="add-person-form" class="col-xl-12 px-3">
                                 <div class="row">
                                     <!-- INPUT: First and last name -->
                                     <div class="input-group mb-2">
@@ -138,43 +138,78 @@
                                             <span class="input-group-text">Full name</span>
                                         </div>
                                         <input type="text" aria-label="First name" class="form-control"
-                                            placeholder="first-">
+                                            placeholder="first-" id="first-name-input">
                                         <input type="text" aria-label="Last name" class="form-control"
-                                            placeholder="last-">
+                                            placeholder="last-" id="last-name-input">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <!-- INPUT: Email -->
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Email address</span>
+                                            <span class="input-group-text">Email</span>
                                         </div>
-                                        <input type="text" aria-label="First name" class="form-control">
+                                        <input type="text" aria-label="Email" class="form-control" placeholder="address"
+                                            id="email-address-input">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <!-- INPUT: Phones -->
-                                    <div class="input-group px-0 mb-2 pr-1 col-md-4">
+                                    <!-- INPUT: Address -->
+                                    <div class="input-group px-0 mb-2 pr-1 col-md-6">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Address</span>
                                         </div>
-                                        <input type="text" class="form-control" aria-label="address-input"></input>
+                                        <input type="text" class="form-control" aria-label="address-input"
+                                            placeholder="street" id="street-name-input"></input>
+                                        <input type="text" class="form-control col-2" aria-label="address-input"
+                                            placeholder="zipcode" id="zipcode-input"></input>
                                     </div>
                                     <!-- INPUT: Phones -->
-                                    <div class="input-group px-0 mb-2 pl-1 pr-1 col-md-4">
+                                    <div class="input-group px-0 mb-2 pl-1 pr-1 col-md-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Phones</span>
                                         </div>
-                                        <input type="text"  class="form-control" aria-label="phones-input"></input>
+                                        <input type="text" class="form-control" aria-label="phones-input"
+                                            placeholder="number" id="phones-input"></input>
                                     </div>
                                     <!-- INPUT: Hobbies -->
-                                    <div class="input-group px-0 mb-2 pl-1 col-md-4">
+                                    <div class="input-group px-0 mb-2 pl-1 col-md-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Hobbies</span>
                                         </div>
-                                        <input type="text"  class="form-control" aria-label="hobbies-input"></input>
+                                        <input type="text" class="form-control" aria-label="hobbies-input"
+                                            placeholder="hobby" id="hobbies-input"></input>
                                     </div>
                                 </div>
+                                <script>
+                                    let firstName = document.getElementById("first-name-input").innerText;
+                                    let lastName = document.getElementById("last-name-input").innerText;
+                                    let email = document.getElementById("email-address-input").innerText;
+                                    let streetName = document.getElementById("street-name-input").innerText;
+                                    let zipcode = document.getElementById("zipcode-input").innerText;
+                                    let phones = document.getElementById("phones-input").innerText;
+                                    let hobbies = document.getElementById("hobbies-input").innerText;
+
+                                    let options = {
+                                        method: "POST",
+                                        headers: {
+                                            'Accept': 'application/json',
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            email: email.getAttribute,
+                                            phones: JSON.stringify({ number: phones, description: "" }),
+                                            firstname: firstName.getAttribute,
+                                            lastname: lastName.getAttribute,
+                                            address: JSON.stringify({ street: streetName, additionalInfo: "" }),
+                                            hobbies: JSON.stringify({ hName: hobbies, hWikiLink: "", hCategory: "", hType: "" }),
+                                            zip: parseInt(zipcode)
+                                        })
+                                    }
+
+                                    fetch("https://benjamincholeva.dk/api/persons/add", options);
+
+                                </script>
                             </div>
                         </div>
                         <!-- Group Tab -->
@@ -361,7 +396,7 @@
                             <ol>
                                 <li>
                                     <p>Person (omit id from POST and PUT methods)</p>
-                                    <p class="text-secondary bg-light rounded p-3">
+                                    <p class="text-secondary bg-light rounded p-3 border">
                                         {<br>
                                         ‘id’: number,<br>
                                         ‘email’: String,<br>
@@ -376,7 +411,7 @@
                                 </li>
                                 <li>
                                     <p>Phone</p>
-                                    <p class="text-secondary bg-light rounded p-3">
+                                    <p class="text-secondary bg-light rounded p-3 border">
                                         {<br>
                                         'number': number,<br>
                                         'description': String<br>
@@ -385,7 +420,7 @@
                                 </li>
                                 <li>
                                     <p>Address</p>
-                                    <p class="text-secondary bg-light rounded p-3">
+                                    <p class="text-secondary bg-light rounded p-3 border">
                                         {<br>
                                         'street': String,<br>
                                         'info': String<br>
@@ -394,7 +429,7 @@
                                 </li>
                                 <li>
                                     <p>Hobby (omit everything but id for PUT and POST methods)</p>
-                                    <p class="text-secondary bg-light rounded p-3">
+                                    <p class="text-secondary bg-light rounded p-3 border">
                                         {<br>
                                         'id' number,<br>
                                         'name': String,<br>
