@@ -57,7 +57,7 @@
                                                 <th scope="col" class="border-top-0">Hobbies</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="persons-table-body">
                                             <tr>
                                                 <td>first + last</td>
                                                 <td>test</td>
@@ -90,6 +90,8 @@
                                     </table>
                                 </div>
                             </div>
+                            <button type="button" class="mt-2 btn btn-secondary btn-sm" id="test-button">Table test</button>
+                            <br>
                             <br>
                             <h5 class="card-title">Get person</h5>
                             <div class="row">
@@ -97,7 +99,7 @@
                                 <div class="col-md-4">
                                     <div class="input-group mb-3">
                                         <input type="number" class="form-control" placeholder="number"
-                                            aria-label="phone" aria-describedby="phone">
+                                            aria-label="phone" aria-describedby="phone" id="phone-lookup-input">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="button" id="phone-button">By
                                                 Phone</button>
@@ -108,7 +110,7 @@
                                 <div class="col-md-4">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="hobby" aria-label="hobby"
-                                            aria-describedby="hobby">
+                                            aria-describedby="hobby" id="hobby-lookup-input">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="button" id="hobby-button">By
                                                 Hobby</button>
@@ -119,7 +121,7 @@
                                 <div class="col-md-4">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="zipcode"
-                                            aria-label="zipcode" aria-describedby="zipcode">
+                                            aria-label="zipcode" aria-describedby="zipcode" id="zipcode-lookup-input">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="button"
                                                 id="zipcode-button">By
@@ -181,35 +183,10 @@
                                             placeholder="hobby" id="hobbies-input"></input>
                                     </div>
                                 </div>
-                                <script>
-                                    let firstName = document.getElementById("first-name-input").innerText;
-                                    let lastName = document.getElementById("last-name-input").innerText;
-                                    let email = document.getElementById("email-address-input").innerText;
-                                    let streetName = document.getElementById("street-name-input").innerText;
-                                    let zipcode = document.getElementById("zipcode-input").innerText;
-                                    let phones = document.getElementById("phones-input").innerText;
-                                    let hobbies = document.getElementById("hobbies-input").innerText;
-
-                                    let options = {
-                                        method: "POST",
-                                        headers: {
-                                            'Accept': 'application/json',
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify({
-                                            email: email.getAttribute,
-                                            phones: JSON.stringify({ number: phones, description: "" }),
-                                            firstname: firstName.getAttribute,
-                                            lastname: lastName.getAttribute,
-                                            address: JSON.stringify({ street: streetName, additionalInfo: "" }),
-                                            hobbies: JSON.stringify({ hName: hobbies, hWikiLink: "", hCategory: "", hType: "" }),
-                                            zip: parseInt(zipcode)
-                                        })
-                                    }
-
-                                    fetch("https://benjamincholeva.dk/api/persons/add", options);
-
-                                </script>
+                                <div class="row">
+                                    <button type="button" class="btn btn-secondary btn-lg" id="add-person-button">Add
+                                        person</button>
+                                </div>
                             </div>
                         </div>
                         <!-- Group Tab -->
@@ -269,7 +246,6 @@
                             <h5 class="card-title">Rest endpoints</h5>
                             <p class="card-text">
                             <div class="border rounded">
-
                                 <div class="table-responsive">
                                     <table class="table table-sm table-hover mb-0 border-top-0">
                                         <thead class="thead-light">

@@ -9,92 +9,108 @@ const checkError = function (res) {
 }
 
 const getPersonsByHobby = function () {
-    const input = document.getElementById("???").value; //TODO, take input from HTML page
+    console.log("getPersonsByHobby")
+    const input = document.getElementById("hobby-lookup-input").value;
     const result = fetch("https://benjamincholeva.dk/api/persons/hobby/" + input)
         .then(checkError)
         .then(data => {
-            document.getElementById("???").innerHTML = data.map(SingleDataToTable);
+            document.getElementById("persons-table-body").innerHTML = data.map(SingleDataToTable).join("");
         })
-    
+        .catch((error) => {
+            console.log(error);
+        });
+
 }
 
 const getPersonsByZip = function () {
-    const input = document.getElementById("???").value;  //TODO, take input from HTML page
+    console.log("getPersonsByZip")
+    const input = document.getElementById("zipcode-lookup-input").value;
     const result = fetch("https://benjamincholeva.dk/api/persons/zip/" + input)
         .then(checkError)
         .then(data => {
-            document.getElementById("???").innerHTML = data.map(SingleDataToTable);
+            document.getElementById("persons-table-body").innerHTML = data.map(SingleDataToTable).join("");
         })
-    
+        .catch((error) => {
+            console.log(error);
+        });
+
 }
 
-const getPersonByPhone = function(){
-    const input = null; //TODO, take input from HTML page
+const getPersonByPhone = function () {
+    console.log("getPersonByPhone")
+    const input = document.getElementById("phone-lookup-input").value;
     const result = fetch("https://benjamincholeva.dk/api/persons/person/" + input)
         .then(checkError)
         .then(data => {
-            document.getElementById("???").innerHTML = SingleDataToTable(data);
+            document.getElementById("persons-table-body").innerHTML = SingleDataToTable(data);
         })
+        .catch((error) => {
+            console.log(error);
+        });
 }
 
-const SingleDataToTable = function(data){
-    return "<tr>"+
-            "<td>" + data.firstName + " " + data.lastName + "</td"+
-            "<td" + data.email + "</td>"+
-            "<td>" + data.phones.join(", ") + "</td>"+
-            "<td>" + data.address.street + ", " + data.address.info + "</td>"+
-            "<td>" + data.hobbies.map(hobbyMapper) + "</td>"+
-            "</tr>";
+const SingleDataToTable = function (data) {
+    return "<tr>" +
+        "<td>" + data.firstName + " " + data.lastName + "</td>" +
+        "<td>" + data.email + "</td>" +
+        "<td>" + data.phones.join(", ") + "</td>" +
+        "<td>" + data.address.street + ", " + data.address.info + "</td>" +
+        "<td>" + data.hobbies.map(hobbyMapper).join(", ") + "</td>" +
+        "</tr>";
 }
 
-const hobbyMapper = function(hobby){
+const hobbyMapper = function (hobby) {
     return "<a href=\"" + hobby.link + "\">" + hobby.name + "</a>";
 }
 
+const addPerson = function () {
+    let firstName = document.getElementById("first-name-input").innerText;
+    let lastName = document.getElementById("last-name-input").innerText;
+    let email = document.getElementById("email-address-input").innerText;
+    let streetName = document.getElementById("street-name-input").innerText;
+    let zipcode = document.getElementById("zipcode-input").innerText;
+    let phones = document.getElementById("phones-input").innerText;
+    let hobbies = document.getElementById("hobbies-input").innerText;
 
+    let options = {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email.getAttribute,
+            phones: JSON.stringify({ number: phones, description: "" }),
+            firstname: firstName.getAttribute,
+            lastname: lastName.getAttribute,
+            address: JSON.stringify({ street: streetName, additionalInfo: "" }),
+            hobbies: JSON.stringify({ hName: hobbies, hWikiLink: "", hCategory: "", hType: "" }),
+            zip: parseInt(zipcode)
+        })
+    }
+    fetch("https://benjamincholeva.dk/api/persons/add", options)
+        .then(checkError)
+        .then(data => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
 
+const SingleDataToTableTest = function () {
+    const tablerow = "<tr>" +
+        "<td>" + "data.firstName" + " " + "data.lastName" + "</td>" +
+        "<td>" + "data.email" + "</td>" +
+        "<td>" + "data.phones" + "</td>" +
+        "<td>" + "data.streetname + data.zipcode" + "</td>" +
+        "<td>" + "data.hobbies" + "</td>" +
+        "</tr>";
+    document.getElementById("persons-table-body").innerHTML = tablerow;
+}
 
-
-
-/*          method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: number,
-                    firstname: String,
-                    lastname: String,
-                    email: String,
-                    phones: [
-                        {
-                            id: number,
-                            number: number,
-                            description: String
-                        },
-                    ],
-                    address: {
-                        id: number,
-                        street: String,
-                        additionalinfo: String,
-                        cityinfo: [
-                            {
-                                zipcode: String,
-                                city: String
-                            }
-                        ],
-
-                    },
-                    hobbies: [
-                        {
-                            name: String,
-                            wikilink: String,
-                            category: String,
-                            type: String
-                        },
-                    ],
-                },
-        )};
-    });
-
-    /*
+document.getElementById("test-button").addEventListener("click", SingleDataToTableTest);
+document.getElementById("add-person-button").addEventListener("click", addPerson);
+document.getElementById("zipcode-button").addEventListener("click", getPersonsByZip);
+document.getElementById("hobby-button").addEventListener("click", getPersonsByHobby);
+document.getElementById("phone-button").addEventListener("click", getPersonByPhone);
